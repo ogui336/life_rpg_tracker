@@ -3,4 +3,11 @@
   <groupId>br.com.gui336</groupId>
   <artifactId>life-rpg-tracker</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+     <dependency>
+         <groupId>com.mysql</groupId>
+         <artifactId>mysql-connector-j</artifactId>
+         <version>9.7.0</version>
+     </dependency>
+  </dependencies>
 </project>

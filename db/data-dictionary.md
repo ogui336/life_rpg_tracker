@@ -46,5 +46,4 @@ Banco de dados: MySQL (via WampServer)
 
 - Todas as FKs usam `ON DELETE CASCADE`: se um usuário for excluído, suas tarefas, notas e registro de XP são excluídos automaticamente junto.
 - `xp.user_id` tem `UNIQUE` para garantir, a nível de banco, que cada usuário tenha no máximo um registro de XP/nível.
-- Tarefas recursivas ficaram fora do MVP (decisão registrada): cada linha de `tasks` representa uma ocorrência única.
-- Ideias registradas para versões futuras, fora do escopo atual: entidade `Conta` (contas pro/gratuita) e entidade `Personagem` (múltiplos personagens por usuário, sistema de masmorra).
+
