@@ -19,8 +19,8 @@ public class RepositoryTest {
 					+ "--------------------------------- \n" + "|1.TESTE CONEXÃO                | \n"
 					+ "|2.CRIAR NOVA CONTA             | \n" + "|3.BUSCAR CONTA POR ID          | \n"
 					+ "|4.BUSCAR CONTA POR EMAIL       | \n" + "|5.ALTERAR NICKNAME             | \n"
-					+ "|6.ENCERRAR                     | \n" + "--------------------------------- \n"
-					+ "DIGITE SUA OPÇÃO: ";
+					+ "|6.ALTERAR NOME                 | \n" + "|8.ENCERRAR                     | \n" 
+					+ "--------------------------------- \n" + "DIGITE SUA OPÇÃO: ";
 
 			System.out.print(menuInicial);
 
@@ -137,14 +137,31 @@ public class RepositoryTest {
 				try {
 					
 					repository.updateNickname(idtroca, nickNovo);
-					System.out.println("TROCA EALIZADA!!");
+					System.out.println("TROCA REALIZADA!!");
 				} catch (SQLException e) {
 					System.out.println(e.getMessage());
 				}
 				break;
 
-				
 			case 6:
+				int idTroca;
+				String novoNome;
+				
+				System.out.println("Informe o seu id: ");
+				idTroca = scan.nextInt();
+				scan.nextLine();
+				System.out.println("Informe o novo nome: ");
+				novoNome = scan.nextLine();
+				try {
+					
+					repository.updateName(idTroca, novoNome);
+					System.out.println("TROCA REALIZADA!!");
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+				break;
+			
+			case 8:
 				System.out.println("TEXTE ENCERRADO...");
 				break;
 			default:

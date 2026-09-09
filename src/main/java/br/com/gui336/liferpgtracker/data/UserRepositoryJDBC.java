@@ -96,6 +96,18 @@ public class UserRepositoryJDBC implements UserRepository{
 		}
 	}
 
+	public void updateName(int id, String newName) throws SQLException {
+		String sql = "UPDATE users SET name = ? WHERE id = ?";
+		
+		try(Connection conn = DatabaseConnection.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, newName);
+			pstmt.setInt(2, id);
+			
+			pstmt.executeUpdate();
+			
+		}
+	}
 	
 	
 }
