@@ -13,24 +13,24 @@ import br.com.gui336.liferpgtracker.domain.User;
 public class UserRepositoryJDBC implements UserRepository{
 
 	@Override
-	public User create(String email, String name, String nickname) throws SQLException {
+	public User create(User user) throws SQLException {
 		String sql = "INSERT INTO users (email, name, nickname) VALUES(?,?,?)";
 		
-		User user = new User();
+		
 		try(Connection conn = DatabaseConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS)){
 			
-			pstmt.setString(1, email);
-			pstmt.setString(2, name);
-			pstmt.setString(3, nickname);
-			pstmt.executeUpdate();
+			
+			pstmt.setString(1, user.getEmail());
+	        pstmt.setString(2, user.getName());
+	        pstmt.setString(3, user.getNickname());
+	        pstmt.executeUpdate();
+
 			
 			try(ResultSet generatedKeys = pstmt.getGeneratedKeys()){
 				if(generatedKeys.next()) {
 					user.setId(generatedKeys.getInt(1));
-					user.setEmail(email);
-					user.setName(name);
-					user.setNickname(nickname);
+				
 				}
 			}
 		}

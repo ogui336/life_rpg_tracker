@@ -8,11 +8,13 @@ import java.sql.SQLException;
 
 public interface UserRepository {
 
-	public User create(String email, String name, String nickname) throws SQLException;
+	public User create(User user) throws SQLException;
 	
 	public Optional<User> findById(int id) throws SQLException;
 	
 	public Optional<User> findByEmail(String email) throws SQLException;
 	
 	public void updateNickname(int id, String newNickname) throws SQLException;
+
+	public void updateName(int id, String newName) throws SQLException;
 }
